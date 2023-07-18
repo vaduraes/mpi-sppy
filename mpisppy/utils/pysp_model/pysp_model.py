@@ -16,7 +16,7 @@ def _yeild_componentdata_from_indexlist(component, index_list):
     for index in index_list:
         if type(index) is tuple:
             indices = tuple(idx if idx != '*' else slice(None) for idx in index)
-            yield from component.__getitem__(indices)
+            yield component.__getitem__(indices)
         elif index == '*' or index == '':
             yield from component.values()
         else:
